@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSE Example</title>
+</head>
+<body>
+    <h2>Current Time</h2>
+    <div id="time" style="font-size:40px;color:green;font-weight:bold"></div>
+
+    <script>
+        if (typeof(EventSource) !== "undefined") {
+            var source = new EventSource("/time");
+            source.onmessage = function(event) {
+                document.getElementById("time").innerText = event.data;
+            };
+        } else {
+            document.getElementById("time").innerText = "Sorry, your browser does not support server-sent events...";
+        }
+    </script>
+</body>
+</html>

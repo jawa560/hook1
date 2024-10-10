@@ -1,0 +1,6 @@
+@hook1_HostAddress = http://localhost:5078
+
+GET {{hook1_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
